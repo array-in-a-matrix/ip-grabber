@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "connect": "^3.7.0",
+    "connect-redirection": "^0.0.1",
+    "http": "^0.0.1-security",
+    "pm2": "^5.1.2",
+    "request-ip": "^2.1.3"
+  }
+}
