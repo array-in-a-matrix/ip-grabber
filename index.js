@@ -25,7 +25,7 @@ const app = connect()
         let output = time.getFullYear() + "-" + ("0" + (time.getMonth() + 1)).slice(-2) + "-" + ("0" + time.getDate()).slice(-2) + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + ">> " + ip;
 
         console.log(output);
-        file.appendFile("/matrix/nginx-proxy/data/matrix-domain/server/ip-grabber/ip-addresses.log", output + '\n', (e) => {
+        file.appendFile("./ip-addresses.log", output + '\n', (e) => {
             if (e) {
                 console.log(e);
             };
