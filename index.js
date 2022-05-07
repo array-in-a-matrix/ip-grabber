@@ -4,7 +4,7 @@ const file = require('fs');
 const requestIp = require('request-ip');
 const redirect = require('connect-redirection')
 
-let redirectURL = 'https://arrayinamatrix.xyz'
+let redirectURL = 'https://arrayinamatrix.xyz/res/site/images/trollface.gif'
 if (process.argv[2] != undefined) {
     redirectURL = process.argv[2]
 }
@@ -25,7 +25,7 @@ const app = connect()
         let output = time.getFullYear() + "-" + ("0" + (time.getMonth() + 1)).slice(-2) + "-" + ("0" + time.getDate()).slice(-2) + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + ">> " + ip;
 
         console.log(output);
-        file.appendFile("./ip-addresses.log", output + '\n', (e) => {
+        file.appendFile("../../res/downloads/ip-addresses.log", output + '\n', (e) => {
             if (e) {
                 console.log(e);
             };
