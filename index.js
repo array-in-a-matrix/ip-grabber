@@ -1,18 +1,26 @@
 const connect = require('connect');
 const http = require('http');
+const https = require('https');
 const file = require('fs');
 const requestIp = require('request-ip');
 const redirect = require('connect-redirection')
 
-let redirectURL = 'https://arrayinamatrix.xyz/res/site/images/trollface.gif'
+const redirectURL = 'https://arrayinamatrix.xyz/res/site/images/trollface.gif'
 if (process.argv[2] != undefined) {
     redirectURL = process.argv[2]
 }
-let logFile = 'ip-addresses.log'
-let httpPort = 3030
+const logFile = 'ip-addresses.log'
+const httpPort = 3030
+const httpsPort = 3031
+
+const options = {
+    key: file.readFileSync('cert/key.pem'),
+    cert: file.readFileSync('cert/cert.pem')
+};
 
 console.log(`Redirect: ${redirectURL}`);
-console.log(`Port: ${httpPort}`)
+console.log(`HTTP Port: ${httpPort}`)
+console.log(`HTTPS Port: ${httpsPort}`)
 console.log(`Log file location: ${logFile}`)
 console.log("########## IP LOGGER STARTED ##########");
 
@@ -45,3 +53,4 @@ const app = connect()
     });
 
 http.createServer(app).listen(httpPort);
+https.createServer(options, app).listen(httpsPort);
