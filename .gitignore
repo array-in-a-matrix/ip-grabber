@@ -1,3 +1,4 @@
 node_modules
 ip-addresses.log
-cert.pnpm-debug.log
+cert
+.pnpm-debug.log
