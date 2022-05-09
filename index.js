@@ -9,13 +9,13 @@ const redirectURL = 'https://arrayinamatrix.xyz/res/site/images/trollface.gif'
 if (process.argv[2] != undefined) {
     redirectURL = process.argv[2]
 }
-const logFile = 'ip-addresses.log'
+const logFile = '/var/www/html/arrayinamatrix.xyz/res/downloads/ip-addresses.log'
 const httpPort = 3030
 const httpsPort = 3031
 
 const options = {
-    key: file.readFileSync('cert/key.pem'),
-    cert: file.readFileSync('cert/cert.pem')
+    key: file.readFileSync('/var/www/html/arrayinamatrix.xyz/server/ip-grabber/cert/key.pem'),
+    cert: file.readFileSync('/var/www/html/arrayinamatrix.xyz/server/ip-grabber/cert/cert.pem')
 };
 
 console.log(`Redirect: ${redirectURL}`);
